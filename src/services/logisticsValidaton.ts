@@ -24,64 +24,6 @@ interface Shipment {
   dropoffs: LocationDetails[];
 }
 
-const shipment: Shipment = {
-  id: "shipment1",
-  pickups: [
-    { id: "A", type: LocationType.Pickup },
-    { id: "B", type: LocationType.Pickup },
-  ],
-  dropoffs: [
-    { id: "C", type: LocationType.Dropoff },
-    { id: "D", type: LocationType.Dropoff },
-  ],
-};
-
-const validTrips: Trip[] = [
-  {
-    id: "trip1",
-    pickups: [{ id: "A", type: LocationType.Pickup }],
-    warehouse: { id: "W", type: LocationType.Warehouse },
-  },
-  {
-    id: "trip2",
-    pickups: [{ id: "B", type: LocationType.Pickup }],
-    warehouse: { id: "W", type: LocationType.Warehouse },
-  },
-  {
-    id: "trip3",
-    dropoffs: [{ id: "C", type: LocationType.Dropoff }],
-    warehouse: { id: "W", type: LocationType.Warehouse },
-  },
-  {
-    id: "trip4",
-    dropoffs: [{ id: "D", type: LocationType.Dropoff }],
-    warehouse: { id: "W", type: LocationType.Warehouse },
-  },
-];
-
-const invalidTrips: Trip[] = [
-  {
-    id: "trip1",
-    pickups: [{ id: "A", type: LocationType.Pickup }],
-    warehouse: { id: "W1", type: LocationType.Warehouse },
-  },
-  {
-    id: "trip2",
-    pickups: [{ id: "B", type: LocationType.Pickup }],
-    warehouse: { id: "W2", type: LocationType.Warehouse },
-  },
-  {
-    id: "trip3",
-    dropoffs: [{ id: "C", type: LocationType.Dropoff }],
-    warehouse: { id: "W3", type: LocationType.Warehouse },
-  },
-  {
-    id: "trip4",
-    dropoffs: [{ id: "D", type: LocationType.Dropoff }],
-    warehouse: { id: "W4", type: LocationType.Warehouse },
-  },
-];
-
 /**
  * Validates if a given set of trips fulfills the requirements of a shipment.
  * @param shipment The shipment to be validated.
@@ -90,7 +32,7 @@ const invalidTrips: Trip[] = [
  */
 
 function validateTripSet(shipment: Shipment, trips: Trip[]): boolean {
-  const remainingPickups = new Set(shipment.pickups.map((p) => p.id)); 
+  const remainingPickups = new Set(shipment.pickups.map((p) => p.id));
   const remainingDropoffs = new Set(shipment.dropoffs.map((d) => d.id));
 
   let usedWarehouseId: string | null = null;
@@ -129,3 +71,5 @@ function validateTripSet(shipment: Shipment, trips: Trip[]): boolean {
 
   return !remainingPickups.size && !remainingDropoffs.size;
 }
+
+export { validateTripSet, Shipment, Trip, LocationType };
