@@ -1,0 +1,22 @@
+[
+    {
+        "userId": "user1",
+        "deviceId": "device1",
+        "loggedInAt": "2023-04-01T08:00:00.000Z",
+        "loggedOutAt": "2023-04-01T18:00:00.000Z",
+        "lastSeenAt": [
+            "2023-04-01T19:00:00.000Z",
+            "2023-04-15T19:00:00.000Z"
+        ]
+    },
+    {
+        "userId": "user2",
+        "deviceId": "device2",
+        "loggedInAt": "2023-04-01T10:00:00.000Z",
+        "loggedOutAt": "2023-04-01T20:00:00.000Z",
+        "lastSeenAt": [
+            "2023-04-01T21:00:00.000Z",
+            "2023-05-01T19:00:00.000Z"
+        ]
+    }
+]
